@@ -7,10 +7,11 @@ de usuarios: tanto usuario normal y superUser//
 //Sintaxis
 Debemos ingresar a la terminal de nuestro OS
 luego entrar a SU y poner nuestro Password
-luego insertamos el comando 
+luego insertamos el comando //
 
 root@nomuser:~# groupadd Casa
-luego para ver si ha sido creado, tenemos que listarlo con el comando:
+
+//luego para ver si ha sido creado, tenemos que listarlo con el comando:
 root@nomuser:~# cat /etc/group
 ahi podremos visualizar si ha sido creado ya que lista todo los grupos creados en el sistema
 //
