@@ -1,0 +1,60 @@
+//Creacion de Grupos Y usuarios para Ubuntu Server
+
+//Primero necesitamos tener bien claro nuestras credenciales
+de usuarios: tanto usuario normal y superUser//
+
+//1. Crear un grupo llamado casa
+//Sintaxis
+Debemos ingresar a la terminal de nuestro OS
+luego entrar a SU y poner nuestro Password
+luego insertamos el comando 
+
+root@nomuser:~# groupadd Casa
+luego para ver si ha sido creado, tenemos que listarlo con el comando:
+root@nomuser:~# cat /etc/group
+ahi podremos visualizar si ha sido creado ya que lista todo los grupos creados en el sistema
+//
+
+
+
+2. Dentro del grupo casa crear 2 usuarios, uno con el
+nombre de su papá o mamá y el otro usuario seria su
+nombre.
+
+//En esta parte necesitaremos crear los 2 usuarios primero, tenemos que ingresar 
+a SU, hacerlo de la siguiente manera//
+
+root@nomuser:~# useradd David&Dora
+root@nomuser:~# useradd DiegoRivera
+
+//para poder ver los usuario usaremos el siguiente comando://
+
+root@nomuser:~# cat /etc/passwd
+//ahi podremos ver todo el listado de usuarios creado por el sistema y al grupo que pertenece//
+
+//Luego para poder introducir estos 2 usuarios al grupo "Casa" previamente creado
+tenemos que user el siguiente comando(siempre estar en el SU)//
+
+root@nomuser:~# adduser David&Dora Casa
+root@nomuser:~# add user Diego Rivera Casa
+
+//para ver a que grupos pertecen los usuario es el siguiente comando://
+
+root@nomuser:~# cut -d: -f1,4 /etc/passwd
+
+//ahi podemos ver como se listaron los usuarios al grupo correspondiente//
+
+
+
+3. Luego cambiar el nombre del grupo casa a Familia.
+
+//para este paso siempre tendre que mantenernos en SU, e ingresar el siguiente comando//
+
+root@nomuser:~# groupmod -g "numero GID" -n Familia Casa-
+
+//en este caso el -g es el gid cambia el identificador del grupo a GID (en esto es opcional, porque sirve de indentificador)
+-n --new_name GRUPO_NUEVO /cambia el nombre a GRUPO_NUEVO
+y luego insertamos el siguiente comando con el cual veremos el listado de grupo y podremos verificar el cambio//
+
+root@nomuser:~# cat /etc/group
+
